@@ -14,18 +14,24 @@ fi
 
 tmp=$(mktemp -d)
 pushd $tmp >/dev/null
-wget -nH -r -c --no-parent "${WGET_ARGS[@]}" -A '*.tar.xz.sig' -A '*.tar.xz.sha256' -A '*.mirrorlist' >/dev/null
-find -type f -name '*.mirrorlist' -delete
+wget -nH -r -c --no-parent "${WGET_ARGS[@]}" -A '*.tar.xz.sig' >/dev/null
 
 csv=$(mktemp)
 find . -type f | while read src; do
-    # Sanitize file name
-    filename=$(gawk '{ print $2 }' "$src" | tr '@' '_')
+    filename="${src##*/}"
+    filename="${filename%.sig}"
+    mirrorlistFile="${filename}.mirrorlist"
+    wget -c "${WGET_ARGS[@]}${mirrorlistFile}"
+    # "parsing" html - this seems wrong, but could not find sha256 sums anywhere else for kde archives
+    sha256=$(gawk -F "</*tr>|</*td>|<td style=\"[^\"]*\">" "/SHA256/ { print \$5 }" $mirrorlistFile)
     nameVersion="${filename%.tar.*}"
     name=$(echo "$nameVersion" | sed -e 's,-[[:digit:]].*,,' | sed -e 's,-opensource-src$,,' | sed -e 's,-everywhere-src$,,')
     version=$(echo "$nameVersion" | sed -e 's,^\([[:alpha:]][[:alnum:]]*-\)\+,,')
-    echo "$name,$version,$src,$filename" >>$csv
+    path=$(dirname ${src:2})
+    echo "$name,$version,$sha256,$filename,$path" >>$csv
 done
+
+#read -p "See CSV in $csv"
 
 cat >"$SRCS" <<EOF
 # DO NOT EDIT! This file is generated automatically.
@@ -38,10 +44,10 @@ EOF
 gawk -F , "{ print \$1 }" $csv | sort | uniq | while read name; do
     versions=$(gawk -F , "/^$name,/ { print \$2 }" $csv)
     latestVersion=$(echo "$versions" | sort -rV | head -n 1)
-    src=$(gawk -F , "/^$name,$latestVersion,/ { print \$3 }" $csv)
+    sha256=$(gawk -F , "/^$name,$latestVersion,/ { print \$3 }" $csv)
     filename=$(gawk -F , "/^$name,$latestVersion,/ { print \$4 }" $csv)
-    url="$(dirname "${src:2}")/$filename"
-    sha256=$(gawk '{ print $1 }' "$src")
+    path=$(gawk -F , "/^$name,$latestVersion,/ { print \$5 }" $csv)
+    url="$path/$filename"
     cat >>"$SRCS" <<EOF
   $name = {
     version = "$latestVersion";
