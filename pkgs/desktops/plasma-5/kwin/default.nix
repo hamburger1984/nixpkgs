@@ -33,7 +33,7 @@ mkDerivation {
     kwayland kwayland-server kwidgetsaddons kwindowsystem kxmlgui plasma-framework
     libcap libdrm mesa
   ];
-  outputs = [ "bin" "dev" "out" ];
+  outputs = [ "dev" "out" ];
   patches = [
     ./0001-follow-symlinks.patch
     ./0002-xwayland.patch
