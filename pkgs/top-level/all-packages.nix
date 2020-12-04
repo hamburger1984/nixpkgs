@@ -238,6 +238,7 @@ in
 
   archiver = callPackage ../applications/misc/archiver { };
 
+  # It segfaults if it uses qt5.15
   digitalbitbox = libsForQt514.callPackage ../applications/misc/digitalbitbox { };
 
   grsync = callPackage ../applications/misc/grsync { };
@@ -5925,7 +5926,7 @@ in
   inherit (callPackage ../servers/nextcloud {})
     nextcloud17 nextcloud18 nextcloud19 nextcloud20;
 
-  nextcloud-client = libsForQt514.callPackage ../applications/networking/nextcloud-client { };
+  nextcloud-client = libsForQt5.callPackage ../applications/networking/nextcloud-client { };
 
   nextcloud-news-updater = callPackage ../servers/nextcloud/news-updater.nix { };
 
@@ -6744,7 +6745,7 @@ in
 
   qr-filetransfer = callPackage ../tools/networking/qr-filetransfer { };
 
-  qtikz = libsForQt514.callPackage ../applications/graphics/ktikz { };
+  qtikz = libsForQt5.callPackage ../applications/graphics/ktikz { };
 
   quickjs = callPackage ../development/interpreters/quickjs { };
 
@@ -22073,14 +22074,13 @@ in
 
   kmplayer = libsForQt5.callPackage ../applications/video/kmplayer { };
 
-  # Pinned to qt5.14 due to kdewebkit (depends on qtwebkit) which is currently broken with qt5.15
-  kmymoney = libsForQt514.callPackage ../applications/office/kmymoney { };
+  kmymoney = libsForQt5.callPackage ../applications/office/kmymoney { };
 
   kodestudio = callPackage ../applications/editors/kodestudio { };
 
   kondo = callPackage ../applications/misc/kondo { };
 
-  konversation = libsForQt514.callPackage ../applications/networking/irc/konversation { };
+  konversation = libsForQt5.callPackage ../applications/networking/irc/konversation { };
 
   kotatogram-desktop = libsForQt514.callPackage ../applications/networking/instant-messengers/telegram/kotatogram-desktop { };
 
@@ -23381,7 +23381,7 @@ in
 
   qsstv = qt5.callPackage ../applications/radio/qsstv { };
 
-  qsyncthingtray = libsForQt514.callPackage ../applications/misc/qsyncthingtray { };
+  qsyncthingtray = libsForQt5.callPackage ../applications/misc/qsyncthingtray { };
 
   qstopmotion = libsForQt5.callPackage ../applications/video/qstopmotion {
     guvcview = guvcview.override {
@@ -24380,7 +24380,7 @@ in
 
   vkeybd = callPackage ../applications/audio/vkeybd {};
 
-  vlc = libsForQt514.callPackage ../applications/video/vlc {};
+  vlc = libsForQt5.callPackage ../applications/video/vlc {};
 
   vlc_qt5 = vlc;
 
