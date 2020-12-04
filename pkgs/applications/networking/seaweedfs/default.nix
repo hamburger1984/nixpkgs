@@ -2,16 +2,16 @@
 
 buildGoModule rec {
   pname = "seaweedfs";
-  version = "2.10";
+  version = "2.13";
 
   src = fetchFromGitHub {
     owner = "chrislusf";
     repo = "seaweedfs";
     rev = version;
-    sha256 = "0ymkkj7nf70rwlzfj6x78dx07mv32qvcb6dp8m92hc4s2ckdz3ly";
+    sha256 = "0w41p2fm26ml5dvdg2cnxcw0xzsbjq26chpa3bkn1adpazlpivp4";
   };
 
-  vendorSha256 = "1r7k0rzizs61r4gqqll7l2j7mdpi3w1ja6l4w6vxgzb45h2sjhi7";
+  vendorSha256 = "0g344dj325d35i0myrzhg5chspqnly40qp910ml6zrmp7iszc1mw";
 
   subPackages = [ "weed" ];
 

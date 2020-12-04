@@ -1,4 +1,4 @@
-{ stdenv, config, lib, callPackage, vscode-utils, llvmPackages_8, llvmPackages_latest }:
+{ stdenv, config, lib, callPackage, vscode-utils, nodePackages,llvmPackages_8, llvmPackages_latest }:
 
 let
   inherit (vscode-utils) buildVscodeMarketplaceExtension;
@@ -10,7 +10,7 @@ let
   # So an extension's attribute name should be of the form:
   # "${mktplcRef.publisher}.${mktplcRef.name}".
   #
-  self = stdenv.lib.mapAttrs (_n: stdenv.lib.recurseIntoAttrs)
+  baseExtensions = self: stdenv.lib.mapAttrs (_n: stdenv.lib.recurseIntoAttrs)
     {
 
       alanz.vscode-hie-server = buildVscodeMarketplaceExtension {
@@ -22,6 +22,21 @@ let
         };
         meta = {
           license = stdenv.lib.licenses.mit;
+        };
+      };
+
+      ms-python.vscode-pylance = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "vscode-pylance";
+          publisher = "MS-python";
+          version = "2020.11.2";
+          sha256 = "0n2dm21vgzir3hx1m3pmx7jq4zy3hdxfsandd2wv5da4fs9b5g50";
+        };
+
+        buildInputs = [ nodePackages.pyright ];
+
+        meta = {
+          license = stdenv.lib.licenses.unfree;
         };
       };
 
@@ -245,11 +260,19 @@ let
       llvm-org.lldb-vscode = llvmPackages_8.lldb;
 
       WakaTime.vscode-wakatime = callPackage ./wakatime {};
-    } // lib.optionalAttrs (config.allowAliases or true) (
-    with self; {
+    };
+
+    aliases = self: super: {
       # aliases
-      ms-vscode.Go = golang.Go;
-    }
-  );
+      ms-vscode = lib.recursiveUpdate super.ms-vscode { inherit (super.golang) Go; };
+    };
+
+    # TODO: add overrides overlay, so that we can have a generated.nix
+    # then apply extension specific modifcations to packages.
+
+    # overlays will be applied left to right, overrides should come after aliases.
+    overlays = lib.optionals (config.allowAliases or true) [ aliases ];
+
+    toFix = lib.foldl' (lib.flip lib.extends) baseExtensions overlays;
 in
-self
+  lib.fix toFix

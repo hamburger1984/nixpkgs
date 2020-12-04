@@ -107,6 +107,13 @@
      </para>
    </listitem>
    <listitem>
+     <para>
+       Setting <option>services.openssh.authorizedKeysFiles</option> now also affects which keys <option>security.pam.enableSSHAgentAuth</option> will use.
+
+       WARNING: If you are using these options in combination do make sure that any key paths you use are present in <option>services.openssh.authorizedKeysFiles</option>!
+     </para>
+   </listitem>
+   <listitem>
     <para>
      The option <option>fonts.enableFontDir</option> has been renamed to
      <xref linkend="opt-fonts.fontDir.enable"/>. The path of font directory
@@ -151,6 +158,11 @@
    <listitem>
     <para>
     <package>btc1</package> has been abandoned upstream, and removed.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+    <package>cpp_ethereum</package> (aleth) has been abandoned upstream, and removed.
     </para>
    </listitem>
    <listitem>
@@ -231,6 +243,14 @@
          user data if they do not exist in <literal>/etc/ssh</literal>.
        </para>
      </warning>
+   </listitem>
+   <listitem>
+    <para>
+      The <literal>rspamd</literal> services is now sandboxed. It is run as
+      a dynamic user instead of root, so secrets and other files may have to
+      be moved or their permissions may have to be fixed. The sockets are now
+      located in <literal>/run/rspamd</literal> instead of <literal>/run</literal>.
+    </para>
    </listitem>
   </itemizedlist>
  </section>
