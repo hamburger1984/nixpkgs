@@ -1,11 +1,14 @@
 { stdenv
 , buildPythonPackage
 , fetchPypi
+, isPy27
+, sgmllib3k
 }:
 
 buildPythonPackage rec {
   pname = "feedparser";
   version = "6.0.2";
+  disabled = isPy27;
 
   src = fetchPypi {
     inherit pname version;
@@ -14,6 +17,7 @@ buildPythonPackage rec {
 
   # lots of networking failures
   doCheck = false;
+  propagatedBuildInputs = [ sgmllib3k ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/kurtmckee/feedparser";
