@@ -1,7 +1,7 @@
 {
   mkDerivation, lib,
   extra-cmake-modules, gettext, kdoctools, python,
-  appstream-qt, discount, flatpak, fwupd, ostree, packagekit-qt, pcre, utillinux,
+  appstream-qt, discount, flatpak, fwupd, ostree, packagekit-qt, pcre, util-linux,
   qtbase, qtquickcontrols2,
   karchive, kconfig, kcrash, kdbusaddons, kdeclarative, kio, kirigami2, kitemmodels,
   knewstuff, kwindowsystem, kxmlgui, plasma-framework
