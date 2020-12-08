@@ -1,23 +1,22 @@
 { stdenv
 , buildPythonPackage
-, fetchPypi
+, fetchFromGitHub
 , isPy27
 , lib
-}: buildPythonPackage rec {
+}:
+
+buildPythonPackage rec {
   pname = "sgmllib3k";
   version = "1.0.0";
   disabled = isPy27;
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "1s8jm3dgqabgf8x96931scji679qkhvczlv3qld4qxpsicfgns3q";
+  # fetchFromGitHub instead of fetchPypi to run tests.
+  src = fetchFromGitHub {
+    owner = "hsoft";
+    repo = "sgmllib";
+    rev = "799964676f35349ca2dd04503e34c2b3ad522c0d";
+    sha256 = "0bzf6pv85dzfxfysm6zbj8m40hp0xzr9h8qlk4hp3nmy88rznqvr";
   };
-
-  # N.B. Tests are completely broken. The package doesn't even ship with the
-  # necessary files for tests to run.
-  doCheck = false;
-
-  pythonImportsCheck = "sgmllib";
 
   meta = with lib; {
     homepage = "https://pypi.org/project/sgmllib3k/";

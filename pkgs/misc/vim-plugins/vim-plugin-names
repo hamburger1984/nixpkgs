@@ -38,6 +38,7 @@ brennanfee/vim-gui-position
 bronson/vim-trailing-whitespace
 brooth/far.vim
 buoto/gotests-vim
+camspiers/lens.vim
 carlitux/deoplete-ternjs
 ccarpita/rtorrent-syntax-file
 cespare/vim-toml
@@ -198,7 +199,7 @@ jonbri/vim-colorstepper
 jonsmithers/vim-html-template-literals
 joonty/vim-xdebug
 joshdick/onedark.vim
-jpalardy/vim-slime
+jpalardy/vim-slime@main
 jparise/vim-graphql
 jparise/vim-phabricator
 jreybert/vimagit

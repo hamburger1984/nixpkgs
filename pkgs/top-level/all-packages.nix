@@ -182,6 +182,8 @@ in
 
   cmark = callPackage ../development/libraries/cmark { };
 
+  cmark-gfm = callPackage ../development/libraries/cmark-gfm { };
+
   cm256cc = callPackage ../development/libraries/cm256cc {  };
 
   conftest = callPackage ../development/tools/conftest { };
@@ -1183,6 +1185,8 @@ in
 
   fxlinuxprintutil = callPackage ../tools/misc/fxlinuxprintutil { };
 
+  genann = callPackage ../development/libraries/genann { };
+
   genpass = callPackage ../tools/security/genpass {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation Security;
   };
@@ -1224,6 +1228,8 @@ in
   glasgow = with python3Packages; toPythonApplication glasgow;
 
   goimapnotify = callPackage ../tools/networking/goimapnotify { };
+
+  gojsontoyaml = callPackage ../development/tools/gojsontoyaml { };
 
   gomatrix = callPackage ../applications/misc/gomatrix { };
 
@@ -2309,6 +2315,8 @@ in
 
   ifm = callPackage ../tools/graphics/ifm {};
 
+  ink = callPackage ../tools/misc/ink { };
+
   interlock = callPackage ../servers/interlock {};
 
   jellyfin = callPackage ../servers/jellyfin { };
@@ -2570,6 +2578,8 @@ in
   snippetpixie = callPackage ../tools/text/snippetpixie { };
 
   socklog = callPackage ../tools/system/socklog { };
+
+  spacevim = callPackage ../applications/editors/spacevim { };
 
   ssmsh = callPackage ../tools/admin/ssmsh { };
 
@@ -3015,6 +3025,8 @@ in
   libotf = callPackage ../tools/inputmethods/m17n-lib/otf.nix {
     inherit (xorg) libXaw;
   };
+
+  netevent = callPackage ../tools/inputmethods/netevent { };
 
   skktools = callPackage ../tools/inputmethods/skk/skktools { };
   skk-dicts = callPackage ../tools/inputmethods/skk/skk-dicts { };
@@ -7855,6 +7867,8 @@ in
 
   turses = callPackage ../applications/networking/instant-messengers/turses { };
 
+  tvm = callPackage ../development/compilers/tvm { };
+
   oysttyer = callPackage ../applications/networking/instant-messengers/oysttyer { };
 
   twilight = callPackage ../tools/graphics/twilight {
@@ -10130,11 +10144,10 @@ in
   sbcl_2_0_9 = callPackage ../development/compilers/sbcl/2.0.9.nix {};
   sbcl = callPackage ../development/compilers/sbcl {};
 
-  inherit (callPackage ../development/compilers/scala/2.x.nix { jre = jre8; })
-    scala_2_10
-    scala_2_11
-    scala_2_12
-    scala_2_13;
+  scala_2_10 = callPackage ../development/compilers/scala/2.x.nix { majorVersion = "2.10"; jre = jdk8; };
+  scala_2_11 = callPackage ../development/compilers/scala/2.x.nix { majorVersion = "2.11"; jre = jdk8; };
+  scala_2_12 = callPackage ../development/compilers/scala/2.x.nix { majorVersion = "2.12"; jre = jdk8; };
+  scala_2_13 = callPackage ../development/compilers/scala/2.x.nix { majorVersion = "2.13"; jre = jdk8; };
 
   scala = scala_2_13;
 
@@ -10769,6 +10782,8 @@ in
   tcl = tcl-8_6;
   tcl-8_5 = callPackage ../development/interpreters/tcl/8.5.nix { };
   tcl-8_6 = callPackage ../development/interpreters/tcl/8.6.nix { };
+
+  tclreadline = callPackage ../development/interpreters/tclreadline { };
 
   wasm = ocamlPackages.wasm;
 
@@ -11820,6 +11835,8 @@ in
 
   pax-rs = callPackage ../development/tools/pax-rs { };
 
+  perfect-hash = callPackage ../development/tools/misc/perfect-hash { };
+
   peg = callPackage ../development/tools/parsing/peg { };
 
   pgcli = pkgs.python3Packages.pgcli;
@@ -12389,10 +12406,7 @@ in
     inherit (llvmPackages_6) llvm clang-unwrapped;
   };
 
-  belle-sip = callPackage ../development/libraries/belle-sip {
-    stdenv = gcc8Stdenv;
-    jre = jre8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
-  };
+  belle-sip = callPackage ../development/libraries/belle-sip { };
 
   libbfd = callPackage ../development/libraries/libbfd { };
 
@@ -14015,6 +14029,8 @@ in
 
   libinjection = callPackage ../development/libraries/libinjection { };
 
+  libinklevel = callPackage ../development/libraries/libinklevel { };
+
   libnats-c = callPackage ../development/libraries/libnats-c {
     openssl = openssl_1_0_2;
   };
@@ -14930,6 +14946,8 @@ in
   mimalloc = callPackage ../development/libraries/mimalloc { };
 
   minizip = callPackage ../development/libraries/minizip { };
+
+  minizip2 = callPackage ../development/libraries/minizip2 { };
 
   mkvtoolnix = libsForQt5.callPackage ../applications/video/mkvtoolnix { };
 
@@ -18107,7 +18125,8 @@ in
 
   iotop = callPackage ../os-specific/linux/iotop { };
 
-  iproute = callPackage ../os-specific/linux/iproute { };
+  iproute2 = callPackage ../os-specific/linux/iproute { };
+  iproute = iproute2; # Alias added 2020-11-15 (TODO: deprecate and move to pkgs/top-level/aliases.nix)
 
   iproute_mptcp = callPackage ../os-specific/linux/iproute/mptcp.nix { };
 
@@ -18317,6 +18336,14 @@ in
   };
 
   linux_5_9 = callPackage ../os-specific/linux/kernel/linux-5.9.nix {
+    kernelPatches = [
+      kernelPatches.bridge_stp_helper
+      kernelPatches.request_key_helper
+      kernelPatches.export_kernel_fpu_functions."5.3"
+    ];
+  };
+
+  linux-rt_5_9 = callPackage ../os-specific/linux/kernel/linux-rt-5.9.nix {
     kernelPatches = [
       kernelPatches.bridge_stp_helper
       kernelPatches.request_key_helper
@@ -18573,10 +18600,11 @@ in
 
   # Realtime kernel packages.
   linuxPackages-rt_5_4 = linuxPackagesFor pkgs.linux-rt_5_4;
-  linuxPackages-rt = linuxPackages-rt_5_4;
-  linux-rt = linuxPackages-rt.kernel;
   linuxPackages-rt_5_6 = linuxPackagesFor pkgs.linux-rt_5_6;
-  linuxPackages-rt_latest = linuxPackages-rt_5_6;
+  linuxPackages-rt_5_9 = linuxPackagesFor pkgs.linux-rt_5_9;
+  linuxPackages-rt = linuxPackages-rt_5_4;
+  linuxPackages-rt_latest = linuxPackages-rt_5_9;
+  linux-rt = linuxPackages-rt.kernel;
   linux-rt_latest = linuxPackages-rt_latest.kernel;
 
   linuxPackages_mptcp = linuxPackagesFor pkgs.linux_mptcp;
@@ -22048,6 +22076,8 @@ in
 
   imgcat = callPackage ../applications/graphics/imgcat { };
 
+  img-cat = callPackage ../applications/graphics/img-cat { };
+
   imgp = python3Packages.callPackage ../applications/graphics/imgp { };
 
   # Impressive, formerly known as "KeyJNote".
@@ -22568,6 +22598,8 @@ in
 
   meli = callPackage ../applications/networking/mailreaders/meli { };
 
+  melmatcheq.lv2 = callPackage ../applications/audio/melmatcheq.lv2 { };
+
   melonDS = callPackage ../misc/emulators/melonDS { };
 
   meme = callPackage ../applications/graphics/meme { };
@@ -22853,6 +22885,8 @@ in
     geoip = geoipWithDatabase;
   };
 
+  nice-dcv-client = callPackage ../applications/networking/remote/nice-dcv-client { };
+
   nixos-shell = callPackage ../tools/virtualization/nixos-shell {};
 
   noaa-apt = callPackage ../applications/radio/noaa-apt { };
@@ -23080,7 +23114,7 @@ in
 
   nedit = callPackage ../applications/editors/nedit { };
 
-  ngt = callPackage ../development/libraries/ngt { };
+  ngt = callPackage ../development/libraries/ngt { enableAVX = false; };
 
   nheko = libsForQt5.callPackage ../applications/networking/instant-messengers/nheko { };
 
@@ -23296,6 +23330,8 @@ in
   peek = callPackage ../applications/video/peek { };
 
   pflask = callPackage ../os-specific/linux/pflask {};
+
+  pfsshell = callPackage ../tools/misc/pfsshell { };
 
   photoqt = libsForQt5.callPackage ../applications/graphics/photoqt { };
 

@@ -1957,6 +1957,10 @@ in {
 
   etelemetry = callPackage ../development/python-modules/etelemetry { };
 
+  etebase = callPackage ../development/python-modules/etebase {
+    inherit (pkgs.darwin.apple_sdk.frameworks) Security;
+  };
+
   etesync = callPackage ../development/python-modules/etesync { };
 
   eth-hash = callPackage ../development/python-modules/eth-hash { };
@@ -3199,6 +3203,8 @@ in {
 
   jsonschema = callPackage ../development/python-modules/jsonschema { };
 
+  jsonstreams = callPackage ../development/python-modules/jsonstreams { };
+
   jsonwatch = callPackage ../development/python-modules/jsonwatch { };
 
   jug = callPackage ../development/python-modules/jug { };
@@ -3381,6 +3387,10 @@ in {
   ledger_agent = callPackage ../development/python-modules/ledger_agent { };
 
   ledgerblue = callPackage ../development/python-modules/ledgerblue { };
+
+  ledgerwallet = callPackage ../development/python-modules/ledgerwallet {
+    inherit (pkgs.darwin.apple_sdk.frameworks) AppKit;
+  };
 
   lektor = callPackage ../development/python-modules/lektor { };
 
@@ -3831,6 +3841,8 @@ in {
   mmpython = callPackage ../development/python-modules/mmpython { };
 
   mnemonic = callPackage ../development/python-modules/mnemonic { };
+
+  mne-python = callPackage ../development/python-modules/mne-python { };
 
   mnist = callPackage ../development/python-modules/mnist { };
 
@@ -4473,6 +4485,8 @@ in {
   pathspec = callPackage ../development/python-modules/pathspec { };
 
   pathtools = callPackage ../development/python-modules/pathtools { };
+
+  patiencediff = callPackage ../development/python-modules/patiencediff { };
 
   patool = callPackage ../development/python-modules/patool { };
 
@@ -5154,7 +5168,10 @@ in {
 
   pygobject2 = callPackage ../development/python-modules/pygobject { inherit (pkgs) pkgconfig; };
 
-  pygobject3 = callPackage ../development/python-modules/pygobject/3.nix { inherit (pkgs) meson pkgconfig; };
+  pygobject3 = if isPy3k then
+    callPackage ../development/python-modules/pygobject/3.nix { inherit (pkgs) meson pkgconfig; }
+  else
+    callPackage ../development/python-modules/pygobject/3.36.nix { inherit (pkgs) meson pkgconfig; };
 
   pygogo = callPackage ../development/python-modules/pygogo { };
 
@@ -5242,7 +5259,10 @@ in {
 
   pylev = callPackage ../development/python-modules/pylev { };
 
-  pylibacl = callPackage ../development/python-modules/pylibacl { };
+  pylibacl = if isPy3k then
+    callPackage ../development/python-modules/pylibacl { }
+  else
+    callPackage ../development/python-modules/pylibacl/0.5.nix { };
 
   pylibconfig2 = callPackage ../development/python-modules/pylibconfig2 { };
 
@@ -5702,6 +5722,8 @@ in {
 
   pytest-catchlog = callPackage ../development/python-modules/pytest-catchlog { };
 
+  pytest-celery = callPackage ../development/python-modules/pytest-celery { };
+
   pytest-check = callPackage ../development/python-modules/pytest-check { };
 
   pytest-click = callPackage ../development/python-modules/pytest-click { };
@@ -5808,6 +5830,8 @@ in {
   pytest-socket = callPackage ../development/python-modules/pytest-socket { };
 
   pytest-subtesthack = callPackage ../development/python-modules/pytest-subtesthack { };
+
+  pytest-subtests = callPackage ../development/python-modules/pytest-subtests { };
 
   pytest-sugar = callPackage ../development/python-modules/pytest-sugar { };
 
@@ -7553,6 +7577,8 @@ in {
   unittest-xml-reporting = callPackage ../development/python-modules/unittest-xml-reporting { };
 
   unpaddedbase64 = callPackage ../development/python-modules/unpaddedbase64 { };
+
+  unrardll = callPackage ../development/python-modules/unrardll { };
 
   unrpa = callPackage ../development/python-modules/unrpa { };
 
