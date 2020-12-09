@@ -2070,7 +2070,10 @@ in {
 
   feedgenerator = callPackage ../development/python-modules/feedgenerator { inherit (pkgs) glibcLocales; };
 
-  feedparser = callPackage ../development/python-modules/feedparser { };
+  feedparser = if isPy3k then
+    callPackage ../development/python-modules/feedparser { }
+  else
+    callPackage ../development/python-modules/feedparser/5.nix { };
 
   fenics = callPackage ../development/libraries/science/math/fenics {
     inherit (pkgs) pkg-config;
@@ -3703,6 +3706,8 @@ in {
   else
     callPackage ../development/python-modules/markdown/3_1.nix { };
 
+  markdown-it-py = callPackage ../development/python-modules/markdown-it-py { };
+
   markdown-macros = callPackage ../development/python-modules/markdown-macros { };
 
   markdownsuperscript = callPackage ../development/python-modules/markdownsuperscript { };
@@ -5129,6 +5134,8 @@ in {
 
   pyfttt = callPackage ../development/python-modules/pyfttt { };
 
+  pyfuse3 = callPackage ../development/python-modules/pyfuse3 { };
+
   pyfxa = callPackage ../development/python-modules/pyfxa { };
 
   pygal = callPackage ../development/python-modules/pygal { };
@@ -5222,8 +5229,6 @@ in {
   pyinputevent = callPackage ../development/python-modules/pyinputevent { };
 
   pyipp = callPackage ../development/python-modules/pyipp { };
-
-  pyjade = callPackage ../development/python-modules/pyjade { };
 
   pyjet = callPackage ../development/python-modules/pyjet { };
 
@@ -5460,6 +5465,8 @@ in {
   pyptlib = callPackage ../development/python-modules/pyptlib { };
 
   pypubsub = callPackage ../development/python-modules/pypubsub { };
+
+  pypugjs = callPackage ../development/python-modules/pypugjs { };
 
   pyqrcode = callPackage ../development/python-modules/pyqrcode { };
 
