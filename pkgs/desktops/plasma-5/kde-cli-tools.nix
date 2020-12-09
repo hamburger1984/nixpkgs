@@ -1,7 +1,7 @@
 {
   lib, mkDerivation, extra-cmake-modules, kdoctools,
   kcmutils, kconfig, kdesu, ki18n, kiconthemes, kinit, kio, kwindowsystem,
-  qtsvg, qtx11extras, kactivities, plasma-workspace
+  qtsvg, qtx11extras, kactivities, plasma-workspace, libXdmcp
 }:
 
 mkDerivation {
@@ -9,7 +9,7 @@ mkDerivation {
   nativeBuildInputs = [ extra-cmake-modules kdoctools ];
   buildInputs = [
     kcmutils kconfig kdesu ki18n kiconthemes kinit kio kwindowsystem qtsvg
-    qtx11extras kactivities plasma-workspace
+    qtx11extras kactivities plasma-workspace libXdmcp
   ];
   postInstall = ''
     # install a symlink in bin so that kdesu can eventually be found in PATH

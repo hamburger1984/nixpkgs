@@ -6,7 +6,7 @@
   kservice, kwallet, kwidgetsaddons, kwindowsystem, kxmlgui,
   mobile-broadband-provider-info, modemmanager-qt, networkmanager-qt,
   openconnect, openvpn, plasma-framework, qca-qt5, qtbase, qtdeclarative,
-  qttools, solid
+  qttools, solid, pcre
 }:
 
 mkDerivation {
@@ -18,7 +18,7 @@ mkDerivation {
     qtdeclarative kcompletion kconfigwidgets kcoreaddons kdbusaddons kiconthemes
     kinit kitemviews knotifications kservice kwallet kwidgetsaddons kxmlgui
     mobile-broadband-provider-info modemmanager-qt networkmanager-qt openconnect
-    qca-qt5 solid
+    qca-qt5 solid pcre
   ];
   patches = [
     (substituteAll {

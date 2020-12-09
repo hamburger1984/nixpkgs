@@ -2,11 +2,11 @@
   mkDerivation, lib,
   extra-cmake-modules, kdoctools,
 
-  boost, fontconfig, ibus, libXcursor, libXft, libcanberra_kde, libpulseaudio,
+  boost, fontconfig, ibus, libXcursor, libXft, libXdmcp, libcanberra_kde, libpulseaudio,
   libxkbfile, xf86inputevdev, xf86inputsynaptics, xinput, xkeyboard_config,
   xorgserver, util-linux,
 
-  qtdeclarative, qtquickcontrols, qtquickcontrols2, qtsvg, qtx11extras,
+  qtdeclarative, qtquickcontrols, qtquickcontrols2, qtsvg, qtx11extras, accounts-qt,
 
   attica, baloo, kactivities, kactivities-stats, kauth, kcmutils, kdbusaddons,
   kdeclarative, kded, kdelibs4support, kemoticons, kglobalaccel, ki18n,
@@ -19,10 +19,10 @@ mkDerivation {
   name = "plasma-desktop";
   nativeBuildInputs = [ extra-cmake-modules kdoctools ];
   buildInputs = [
-    boost fontconfig ibus libcanberra_kde libpulseaudio libXcursor libXft xorgserver
+    boost fontconfig ibus libcanberra_kde libpulseaudio libXcursor libXft libXdmcp xorgserver
     libxkbfile phonon xf86inputevdev xf86inputsynaptics xinput xkeyboard_config
 
-    qtdeclarative qtquickcontrols qtquickcontrols2 qtsvg qtx11extras
+    qtdeclarative qtquickcontrols qtquickcontrols2 qtsvg qtx11extras accounts-qt
 
     attica baloo kactivities kactivities-stats kauth kcmutils kdbusaddons
     kdeclarative kded kdelibs4support kemoticons kglobalaccel ki18n kitemmodels
