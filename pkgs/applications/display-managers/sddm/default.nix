@@ -1,6 +1,6 @@
 { mkDerivation, lib, fetchFromGitHub
 , cmake, extra-cmake-modules, pkgconfig, libxcb, libpthreadstubs
-, libXdmcp, libXau, qtbase, qtdeclarative, qtquickcontrols2, qttools, pam, systemd
+, libXdmcp, libXau, qtbase, qtdeclarative, qtquickcontrols2, qttools, kirigami2, pam, systemd
 }:
 
 let
@@ -30,7 +30,7 @@ in mkDerivation {
   nativeBuildInputs = [ cmake extra-cmake-modules pkgconfig qttools ];
 
   buildInputs = [
-    libxcb libpthreadstubs libXdmcp libXau pam qtbase qtdeclarative qtquickcontrols2 systemd
+    libxcb libpthreadstubs libXdmcp libXau pam qtbase qtdeclarative qtquickcontrols2 kirigami2 systemd
   ];
 
   cmakeFlags = [

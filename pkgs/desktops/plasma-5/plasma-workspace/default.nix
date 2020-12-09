@@ -8,7 +8,7 @@
 
   baloo, breeze-qt5, kactivities, kactivities-stats, kcmutils, kconfig, kcrash,
   kdbusaddons, kdeclarative, kdelibs4support, kdesu, kglobalaccel, kidletime,
-  kinit, kjsembed, knewstuff, knotifyconfig, kpackage, kpeople, krunner,
+  kinit, kirigami2, kjsembed, knewstuff, knotifyconfig, kpackage, kpeople, krunner,
   kscreenlocker, ktexteditor, ktextwidgets, kwallet, kwayland, kwin,
   kxmlrpcclient, libkscreen, libksysguard, libqalculate, networkmanager-qt,
   phonon, plasma-framework, prison, solid, kholidays, kquickcharts,
@@ -28,7 +28,7 @@ mkDerivation {
     isocodes libdbusmenu libSM libXcursor libXtst libXft libXdmcp libdrm pam wayland
 
     baloo kactivities kactivities-stats kcmutils kconfig kcrash kdbusaddons
-    kdeclarative kdelibs4support kdesu kglobalaccel kidletime kjsembed knewstuff
+    kdeclarative kdelibs4support kdesu kglobalaccel kidletime kirigami2 kjsembed knewstuff
     knotifyconfig kpackage kpeople krunner kscreenlocker ktexteditor
     ktextwidgets kwallet kwayland kwin kxmlrpcclient libkscreen libksysguard
     libqalculate networkmanager-qt phonon plasma-framework prison solid
