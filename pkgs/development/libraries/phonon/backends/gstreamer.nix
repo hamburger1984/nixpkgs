@@ -1,5 +1,5 @@
 { stdenv, lib, fetchurl, cmake, gst_all_1, phonon, pkgconfig
-, extra-cmake-modules, qttools, qtbase, qtx11extras
+, extra-cmake-modules, qttools, qtbase, qtx11extras, pcre, libunwind, elfutils
 , debug ? false
 }:
 
@@ -50,6 +50,9 @@ stdenv.mkDerivation rec {
     phonon
     qtbase
     qtx11extras
+    pcre
+    libunwind
+    elfutils
   ];
 
   nativeBuildInputs = [
