@@ -28,6 +28,7 @@
 , qtmultimedia
 , qtquickcontrols2
 , qtscript
+, qtwebkit
 , rttr
 , kpurpose
 , kdeclarative
@@ -63,6 +64,7 @@ mkDerivation {
     qtmultimedia
     qtquickcontrols2
     qtscript
+    qtwebkit
     shared-mime-info
     libv4l
     ffmpeg-full
