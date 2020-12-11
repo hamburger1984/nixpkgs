@@ -178,6 +178,8 @@ in
 
   cereal = callPackage ../development/libraries/cereal { };
 
+  chrysalis = callPackage ../applications/misc/chrysalis { };
+
   clj-kondo = callPackage ../development/tools/clj-kondo { };
 
   cmark = callPackage ../development/libraries/cmark { };
@@ -930,6 +932,8 @@ in
   atomicparsley = callPackage ../tools/video/atomicparsley {
     inherit (darwin.apple_sdk.frameworks) Cocoa;
   };
+
+  audiowaveform = callPackage ../tools/audio/audiowaveform { };
 
   autoflake = callPackage ../development/tools/analysis/autoflake { };
 
@@ -2931,13 +2935,14 @@ in
 
   circus = callPackage ../tools/networking/circus { };
 
-  citrix_workspace = citrix_workspace_20_10_0;
+  citrix_workspace = citrix_workspace_20_12_0;
 
   inherit (callPackage ../applications/networking/remote/citrix-workspace { })
     citrix_workspace_20_04_0
     citrix_workspace_20_06_0
     citrix_workspace_20_09_0
     citrix_workspace_20_10_0
+    citrix_workspace_20_12_0
   ;
 
   citra = libsForQt5.callPackage ../misc/emulators/citra { };
@@ -4816,8 +4821,6 @@ in
   imgurbash2 = callPackage ../tools/graphics/imgurbash2 { };
 
   inadyn = callPackage ../tools/networking/inadyn { };
-
-  inboxer = callPackage ../applications/networking/mailreaders/inboxer { };
 
   incron = callPackage ../tools/system/incron { };
 
@@ -6763,6 +6766,8 @@ in
 
   remarshal = callPackage ../development/tools/remarshal { };
 
+  rehex = callPackage ../applications/editors/rehex { };
+
   rig = callPackage ../tools/misc/rig {
     stdenv = gccStdenv;
   };
@@ -7285,6 +7290,8 @@ in
   simplescreenrecorder = libsForQt5.callPackage ../applications/video/simplescreenrecorder { };
 
   sipsak = callPackage ../tools/networking/sipsak { };
+
+  siril = callPackage ../applications/science/astronomy/siril { };
 
   sisco.lv2 = callPackage ../applications/audio/sisco.lv2 { };
 
@@ -14273,6 +14280,8 @@ in
 
   librime = callPackage ../development/libraries/librime {};
 
+  librtprocess = callPackage ../development/libraries/librtprocess { };
+
   libsamplerate = callPackage ../development/libraries/libsamplerate {
     inherit (darwin.apple_sdk.frameworks) ApplicationServices Carbon CoreServices;
   };
@@ -14639,7 +14648,9 @@ in
 
   libtomcrypt = callPackage ../development/libraries/libtomcrypt { };
 
-  libtorrentRasterbar-1_2_x = callPackage ../development/libraries/libtorrent-rasterbar/1.2 { };
+  libtorrentRasterbar-1_2_x = callPackage ../development/libraries/libtorrent-rasterbar/1.2 {
+    inherit (darwin.apple_sdk.frameworks) SystemConfiguration;
+  };
 
   libtorrentRasterbar-1_1_x = callPackage ../development/libraries/libtorrent-rasterbar/1.1 { };
 
@@ -16175,7 +16186,9 @@ in
 
   taglib-sharp = callPackage ../development/libraries/taglib-sharp { };
 
-  talloc = callPackage ../development/libraries/talloc { };
+  talloc = callPackage ../development/libraries/talloc {
+    wafHook = wafHook.override { python = python3; };
+  };
 
   tclap = callPackage ../development/libraries/tclap {};
 
@@ -17026,8 +17039,6 @@ in
 
   firebird = callPackage ../servers/firebird { icu = null; /*stdenv = gcc5Stdenv;*/ };
   firebirdSuper = firebird.override { icu = icu58; superServer = true; /*stdenv = gcc5Stdenv;*/ };
-
-  frab = callPackage ../servers/web-apps/frab { };
 
   freeradius = callPackage ../servers/freeradius { };
 
@@ -18210,6 +18221,10 @@ in
 
   openisns = callPackage ../os-specific/linux/open-isns { };
 
+  osx-cpu-temp = callPackage ../os-specific/darwin/osx-cpu-temp {
+    inherit (pkgs.darwin.apple_sdk.frameworks) IOKit;
+  };
+
   osxfuse = callPackage ../os-specific/darwin/osxfuse { };
 
   osxsnarf = callPackage ../os-specific/darwin/osxsnarf { };
@@ -19174,6 +19189,7 @@ in
     withMachined = false;
     withNetworkd = false;
     withNss = false;
+    withOomd = false;
     withPCRE2 = false;
     withPolkit = false;
     withRemote = false;
@@ -22374,6 +22390,8 @@ in
   lemonbar-xft = callPackage ../applications/window-managers/lemonbar/xft.nix { };
 
   legit = gitAndTools.legit;
+
+  lens = callPackage ../applications/networking/cluster/lens { };
 
   leo-editor = libsForQt5.callPackage ../applications/editors/leo-editor { };
 
@@ -28783,8 +28801,6 @@ in
     gcc-arm-embedded = pkgsCross.arm-embedded.buildPackages.gcc;
     gcc-armhf-embedded = pkgsCross.armhf-embedded.buildPackages.gcc;
   };
-
-  tdm = callPackage ../games/tdm { };
 
   newlib = callPackage ../development/misc/newlib { };
   newlibCross = callPackage ../development/misc/newlib {
