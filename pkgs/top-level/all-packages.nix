@@ -4603,7 +4603,7 @@ in
 
   hal-flash = callPackage ../os-specific/linux/hal-flash { };
 
-  hal-hardware-analyzer = libsForQt514.callPackage ../applications/science/electronics/hal-hardware-analyzer { };
+  hal-hardware-analyzer = libsForQt5.callPackage ../applications/science/electronics/hal-hardware-analyzer { };
 
   half = callPackage ../development/libraries/half { };
 
@@ -6755,6 +6755,8 @@ in
   pyditz = callPackage ../applications/misc/pyditz {
     pythonPackages = python27Packages;
   };
+
+  py-spy = callPackage ../development/tools/py-spy { };
 
   pytrainer = callPackage ../applications/misc/pytrainer { };
 
@@ -21831,6 +21833,8 @@ in
     gtk = gtk3;
   };
 
+  hover = callPackage ../development/tools/hover { };
+
   hovercraft = python3Packages.callPackage ../applications/misc/hovercraft { };
 
   howl = callPackage ../applications/editors/howl { };
@@ -22342,6 +22346,8 @@ in
   popeye = callPackage ../applications/networking/cluster/popeye { };
 
   fluxctl = callPackage ../applications/networking/cluster/fluxctl { };
+
+  fluxcd = callPackage ../applications/networking/cluster/fluxcd { };
 
   linkerd = callPackage ../applications/networking/cluster/linkerd { };
 
