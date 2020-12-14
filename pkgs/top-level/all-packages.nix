@@ -2577,6 +2577,8 @@ in
 
   shell-hist = callPackage ../tools/misc/shell-hist { };
 
+  simdjson = callPackage ../development/libraries/simdjson { };
+
   simg2img = callPackage ../tools/filesystems/simg2img { };
 
   simplenes = callPackage ../misc/emulators/simplenes { };
@@ -5310,6 +5312,8 @@ in
   nbench = callPackage ../tools/misc/nbench { };
 
   ncrack = callPackage ../tools/security/ncrack { };
+
+  nerdctl = callPackage ../applications/networking/cluster/nerdctl { };
 
   netdata = callPackage ../tools/system/netdata {
     inherit (darwin.apple_sdk.frameworks) CoreFoundation IOKit;
@@ -12496,7 +12500,7 @@ in
 
   hercules-ci-agent = callPackage ../development/tools/continuous-integration/hercules-ci-agent { };
 
-  niv = haskellPackages.niv.bin;
+  niv = haskell.lib.justStaticExecutables haskellPackages.niv;
 
   ormolu = haskellPackages.ormolu.bin;
 
@@ -21310,7 +21314,7 @@ in
     gnuradio = gnuradio3_7-unwrapped;
   };
 
-  goldendict = libsForQt514.callPackage ../applications/misc/goldendict {
+  goldendict = libsForQt5.callPackage ../applications/misc/goldendict {
     inherit (darwin) libiconv;
   };
 
@@ -21620,6 +21624,8 @@ in
 
   linssid = libsForQt5.callPackage ../applications/networking/linssid { };
 
+  deadd-notification-center = callPackage ../applications/misc/deadd-notification-center/default.nix { };
+
   lollypop = callPackage ../applications/audio/lollypop { };
 
   m32edit = callPackage ../applications/audio/midas/m32edit.nix {};
@@ -21740,11 +21746,11 @@ in
 
   gosmore = callPackage ../applications/misc/gosmore { };
 
-  gpsbabel = libsForQt514.callPackage ../applications/misc/gpsbabel {
+  gpsbabel = libsForQt5.callPackage ../applications/misc/gpsbabel {
     inherit (darwin) IOKit;
   };
 
-  gpsbabel-gui = libsForQt514.callPackage ../applications/misc/gpsbabel/gui.nix { };
+  gpsbabel-gui = libsForQt5.callPackage ../applications/misc/gpsbabel/gui.nix { };
 
   gpscorrelate = callPackage ../applications/misc/gpscorrelate { };
 
@@ -22589,7 +22595,7 @@ in
 
   mandelbulber = libsForQt5.callPackage ../applications/graphics/mandelbulber { };
 
-  mapmap = libsForQt514.callPackage ../applications/video/mapmap { };
+  mapmap = libsForQt5.callPackage ../applications/video/mapmap { };
 
   marathonctl = callPackage ../tools/virtualization/marathonctl { } ;
 
