@@ -1389,12 +1389,12 @@ in {
   cryptacular = callPackage ../development/python-modules/cryptacular { };
 
   cryptography = if isPy27 then
-    callPackage ../development/python-modules/cryptography/2.9.nix { }
+    callPackage ../development/python-modules/cryptography/3.3.nix { }
   else
     callPackage ../development/python-modules/cryptography { };
 
   cryptography_vectors = if isPy27 then
-    callPackage ../development/python-modules/cryptography/vectors-2.9.nix { }
+    callPackage ../development/python-modules/cryptography/vectors-3.3.nix { }
   else
     callPackage ../development/python-modules/cryptography/vectors.nix { };
 
@@ -4789,6 +4789,8 @@ in {
 
   pre-commit = callPackage ../development/python-modules/pre-commit { };
 
+  pre-commit-hooks = callPackage ../development/python-modules/pre-commit-hooks { };
+
   preggy = callPackage ../development/python-modules/preggy { };
 
   premailer = callPackage ../development/python-modules/premailer { };
@@ -7200,7 +7202,9 @@ in {
 
   telegram = callPackage ../development/python-modules/telegram { };
 
-  telethon = callPackage ../development/python-modules/telethon { };
+  telethon = callPackage ../development/python-modules/telethon {
+    inherit (pkgs) openssl;
+  };
 
   telethon-session-sqlalchemy = callPackage ../development/python-modules/telethon-session-sqlalchemy { };
 

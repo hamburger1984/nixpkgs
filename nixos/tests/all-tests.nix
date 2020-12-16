@@ -91,6 +91,7 @@ in
   docker-edge = handleTestOn ["x86_64-linux"] ./docker-edge.nix {};
   docker-registry = handleTest ./docker-registry.nix {};
   docker-tools = handleTestOn ["x86_64-linux"] ./docker-tools.nix {};
+  docker-tools-cross = handleTestOn ["x86_64-linux" "aarch64-linux"] ./docker-tools-cross.nix {};
   docker-tools-overlay = handleTestOn ["x86_64-linux"] ./docker-tools-overlay.nix {};
   documize = handleTest ./documize.nix {};
   dokuwiki = handleTest ./dokuwiki.nix {};
@@ -375,6 +376,7 @@ in
   telegraf = handleTest ./telegraf.nix {};
   tiddlywiki = handleTest ./tiddlywiki.nix {};
   timezone = handleTest ./timezone.nix {};
+  tinc = handleTest ./tinc {};
   tinydns = handleTest ./tinydns.nix {};
   tor = handleTest ./tor.nix {};
   # traefik test relies on docker-containers

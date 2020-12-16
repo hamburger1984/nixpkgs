@@ -801,6 +801,8 @@ in
 
   wayst = callPackage ../applications/terminal-emulators/wayst { };
 
+  wezterm = callPackage ../applications/terminal-emulators/wezterm { };
+
   x3270 = callPackage ../applications/terminal-emulators/x3270 { };
 
   xterm = callPackage ../applications/terminal-emulators/xterm { };
@@ -3016,6 +3018,8 @@ in
 
   usb-modeswitch = callPackage ../development/tools/misc/usb-modeswitch { };
   usb-modeswitch-data = callPackage ../development/tools/misc/usb-modeswitch/data.nix { };
+
+  usbsdmux = callPackage ../development/tools/misc/usbsdmux { };
 
   anthy = callPackage ../tools/inputmethods/anthy { };
 
@@ -5293,6 +5297,8 @@ in
 
   mmv-go = callPackage ../tools/misc/mmv-go { };
 
+  mob = callPackage ../applications/misc/mob { };
+
   most = callPackage ../tools/misc/most { };
 
   motion = callPackage ../applications/video/motion { };
@@ -6581,6 +6587,8 @@ in
     # http://plantuml.com/faq (heading: "Which version of Graphviz should I use ?")
     graphviz = graphviz_2_32;
   };
+
+  plantuml-server = callPackage ../tools/misc/plantuml-server { };
 
   plan9port = callPackage ../tools/system/plan9port { };
 
@@ -8290,6 +8298,8 @@ in
 
   xbrightness = callPackage ../tools/X11/xbrightness { };
 
+  xdg-launch = callPackage ../applications/misc/xdg-launch { };
+
   xkbvalidate = callPackage ../tools/X11/xkbvalidate { };
 
   xfstests = callPackage ../tools/misc/xfstests { };
@@ -8922,7 +8932,10 @@ in
     llvmPackages = llvmPackages_latest;
   };
 
-  clang-analyzer = callPackage ../development/tools/analysis/clang-analyzer { };
+  clang-analyzer = callPackage ../development/tools/analysis/clang-analyzer {
+    llvmPackages = llvmPackages_latest;
+    inherit (llvmPackages_latest) clang;
+  };
 
   #Use this instead of stdenv to build with clang
   clangStdenv = if stdenv.cc.isClang then stdenv else lowPrio llvmPackages.stdenv;
@@ -16395,7 +16408,7 @@ in
                                           CoreText IOSurface ImageIO OpenGL GLUT;
   };
 
-  vtk_9 = libsForQt514.callPackage ../development/libraries/vtk/9.x.nix {
+  vtk_9 = libsForQt515.callPackage ../development/libraries/vtk/9.x.nix {
     inherit (darwin) libobjc;
     inherit (darwin.apple_sdk.libs) xpc;
     inherit (darwin.apple_sdk.frameworks) Cocoa CoreServices DiskArbitration
@@ -16796,6 +16809,12 @@ in
   ack = perlPackages.ack;
 
   perlcritic = perlPackages.PerlCritic;
+
+  sqitchMysql = callPackage ../development/tools/misc/sqitch {
+    name = "sqitch-mysql";
+    databaseModule = perlPackages.DBDmysql;
+    sqitchModule = perlPackages.AppSqitch;
+  };
 
   sqitchPg = callPackage ../development/tools/misc/sqitch {
     name = "sqitch-pg";
@@ -17622,6 +17641,8 @@ in
 
   radicale = radicale3;
 
+  radicle-upstream = callPackage ../applications/version-management/git-and-tools/radicle-upstream {};
+
   rake = callPackage ../development/tools/build-managers/rake { };
 
   redis = callPackage ../servers/nosql/redis { };
@@ -18364,14 +18385,6 @@ in
     ];
   };
 
-  linux_5_8 = callPackage ../os-specific/linux/kernel/linux-5.8.nix {
-    kernelPatches = [
-      kernelPatches.bridge_stp_helper
-      kernelPatches.request_key_helper
-      kernelPatches.export_kernel_fpu_functions."5.3"
-    ];
-  };
-
   linux_5_9 = callPackage ../os-specific/linux/kernel/linux-5.9.nix {
     kernelPatches = [
       kernelPatches.bridge_stp_helper
@@ -18380,7 +18393,15 @@ in
     ];
   };
 
-  linux-rt_5_9 = callPackage ../os-specific/linux/kernel/linux-rt-5.9.nix {
+  linux_5_10 = callPackage ../os-specific/linux/kernel/linux-5.10.nix {
+    kernelPatches = [
+      kernelPatches.bridge_stp_helper
+      kernelPatches.request_key_helper
+      kernelPatches.export_kernel_fpu_functions."5.3"
+    ];
+  };
+
+  linux-rt_5_10 = callPackage ../os-specific/linux/kernel/linux-rt-5.10.nix {
     kernelPatches = [
       kernelPatches.bridge_stp_helper
       kernelPatches.request_key_helper
@@ -18633,15 +18654,15 @@ in
 
   # Update this when adding the newest kernel major version!
   # And update linux_latest_for_hardened below if the patches are already available
-  linuxPackages_latest = linuxPackages_5_9;
+  linuxPackages_latest = linuxPackages_5_10;
   linux_latest = linuxPackages_latest.kernel;
 
   # Realtime kernel packages.
   linuxPackages-rt_5_4 = linuxPackagesFor pkgs.linux-rt_5_4;
   linuxPackages-rt_5_6 = linuxPackagesFor pkgs.linux-rt_5_6;
-  linuxPackages-rt_5_9 = linuxPackagesFor pkgs.linux-rt_5_9;
+  linuxPackages-rt_5_10 = linuxPackagesFor pkgs.linux-rt_5_10;
   linuxPackages-rt = linuxPackages-rt_5_4;
-  linuxPackages-rt_latest = linuxPackages-rt_5_9;
+  linuxPackages-rt_latest = linuxPackages-rt_5_10;
   linux-rt = linuxPackages-rt.kernel;
   linux-rt_latest = linuxPackages-rt_latest.kernel;
 
@@ -18656,8 +18677,8 @@ in
   linuxPackages_4_14 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_4_14);
   linuxPackages_4_19 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_4_19);
   linuxPackages_5_4 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_5_4);
-  linuxPackages_5_8 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_5_8);
   linuxPackages_5_9 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_5_9);
+  linuxPackages_5_10 = recurseIntoAttrs (linuxPackagesFor pkgs.linux_5_10);
 
   # When adding to the list above:
   # - Update linuxPackages_latest to the latest version
@@ -19275,6 +19296,11 @@ in
     ubootUtilite
     ubootWandboard
     ;
+
+  # Upstream Barebox:
+  inherit (callPackage ../misc/barebox {})
+    buildBarebox
+    bareboxTools;
 
   uclibc = callPackage ../os-specific/linux/uclibc { };
 
@@ -23271,6 +23297,10 @@ in
 
   owamp = callPackage ../applications/networking/owamp { };
 
+  vieb = callPackage ../applications/networking/browsers/vieb {
+    electron = electron_11;
+  };
+
   vivaldi = callPackage ../applications/networking/browsers/vivaldi {};
 
   vivaldi-ffmpeg-codecs = callPackage ../applications/networking/browsers/vivaldi/ffmpeg-codecs.nix {};
@@ -23847,7 +23877,7 @@ in
     inherit (gnome2) libart_lgpl;
   };
 
-  scribusUnstable = libsForQt514.callPackage ../applications/office/scribus/unstable.nix { };
+  scribusUnstable = libsForQt5.callPackage ../applications/office/scribus/unstable.nix { };
 
   seafile-client = libsForQt514.callPackage ../applications/networking/seafile-client { };
 
@@ -26980,6 +27010,7 @@ in
     coqPackages_8_10 coq_8_10
     coqPackages_8_11 coq_8_11
     coqPackages_8_12 coq_8_12
+    coqPackages_8_13 coq_8_13
     coqPackages      coq
   ;
 
