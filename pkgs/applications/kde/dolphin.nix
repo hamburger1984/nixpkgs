@@ -4,7 +4,7 @@
   baloo, baloo-widgets, kactivities, kbookmarks, kcmutils,
   kcompletion, kconfig, kcoreaddons, kdelibs4support, kdbusaddons,
   kfilemetadata, ki18n, kiconthemes, kinit, kio, knewstuff, knotifications,
-  kparts, ktexteditor, kwindowsystem, phonon, solid,
+  kparts, ktexteditor, kwindowsystem, phonon, solid, packagekit-qt,
   wayland, qtwayland
 }:
 
@@ -20,7 +20,7 @@ mkDerivation {
     baloo baloo-widgets kactivities kbookmarks kcmutils kcompletion kconfig
     kcoreaddons kdelibs4support kdbusaddons kfilemetadata ki18n kiconthemes
     kinit kio knewstuff knotifications kparts ktexteditor kwindowsystem
-    phonon solid
+    phonon solid packagekit-qt
     wayland qtwayland
   ];
   outputs = [ "out" "dev" ];
