@@ -3,7 +3,8 @@
   extra-cmake-modules, kdoctools,
   bluez-qt, kactivities, kauth, kconfig, kdbusaddons, kdelibs4support,
   kglobalaccel, ki18n, kidletime, kio, knotifyconfig, kwayland, libkscreen,
-  ddcutil, networkmanager-qt, plasma-workspace, qtx11extras, solid, udev
+  ddcutil, networkmanager-qt, plasma-workspace, qtx11extras, solid, udev,
+  libXdmcp, libcap
 }:
 
 mkDerivation {
@@ -14,6 +15,7 @@ mkDerivation {
     kdelibs4support kglobalaccel ki18n kio kidletime kwayland libkscreen
     networkmanager-qt plasma-workspace qtx11extras
     ddcutil
+    libXdmcp libcap
   ];
   cmakeFlags = [
     "-DHAVE_DDCUTIL=On"

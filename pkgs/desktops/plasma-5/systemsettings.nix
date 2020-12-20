@@ -2,7 +2,8 @@
   mkDerivation, extra-cmake-modules, kdoctools,
   kcmutils, kconfig, kdbusaddons, khtml, ki18n, kiconthemes, kio, kitemviews,
   kservice, kwindowsystem, kxmlgui, qtquickcontrols, qtquickcontrols2,
-  kactivities, kactivities-stats, kirigami2, kcrash, plasma-workspace
+  kactivities, kactivities-stats, kirigami2, kcrash, plasma-workspace,
+  libXdmcp
 }:
 
 mkDerivation {
@@ -12,6 +13,7 @@ mkDerivation {
     kcmutils kconfig kdbusaddons khtml ki18n kiconthemes kio kitemviews kservice
     kwindowsystem kxmlgui qtquickcontrols qtquickcontrols2
     kactivities kactivities-stats kirigami2 kcrash plasma-workspace
+    libXdmcp
   ];
   outputs = [ "bin" "dev" "out" ];
 }

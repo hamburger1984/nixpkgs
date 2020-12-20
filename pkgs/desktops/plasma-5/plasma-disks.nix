@@ -3,7 +3,7 @@
   kcmutils, kconfig, kdbusaddons, khtml, ki18n, kiconthemes, kio, kitemviews,
   kservice, kwindowsystem, kxmlgui, qtquickcontrols, qtquickcontrols2,
   kactivities, kactivities-stats, kirigami2, kcrash, plasma-workspace,
-  systemsettings
+  systemsettings, smartmontools, libatasmart
 }:
 
 mkDerivation {
@@ -13,7 +13,7 @@ mkDerivation {
     kcmutils kconfig kdbusaddons khtml ki18n kiconthemes kio kitemviews kservice
     kwindowsystem kxmlgui qtquickcontrols qtquickcontrols2
     kactivities kactivities-stats kirigami2 kcrash plasma-workspace
-    systemsettings
+    systemsettings libatasmart
   ];
   outputs = [ "bin" "dev" "out" ];
 }

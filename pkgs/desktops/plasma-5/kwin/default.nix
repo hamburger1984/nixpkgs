@@ -2,10 +2,10 @@
   mkDerivation, lib, fetchpatch,
   extra-cmake-modules, kdoctools,
 
-  epoxy,libICE, libSM, libinput, libxkbcommon, udev, wayland, xcb-util-cursor,
-  xwayland,
+  epoxy, libICE, libSM, libinput, libxkbcommon, udev, wayland, xcb-util-cursor,
+  xwayland, libXdmcp, hwdata, pipewire,
 
-  qtdeclarative, qtmultimedia, qtquickcontrols2, qtscript, qtsensors,
+  qtdeclarative, qtmultimedia, qtquickcontrols, qtquickcontrols2, qtscript, qtsensors,
   qtvirtualkeyboard, qtx11extras,
 
   breeze-qt5, kactivities, kcompletion, kcmutils, kconfig, kconfigwidgets,
@@ -22,9 +22,9 @@ mkDerivation {
   nativeBuildInputs = [ extra-cmake-modules kdoctools ];
   buildInputs = [
     epoxy libICE libSM libinput libxkbcommon udev wayland xcb-util-cursor
-    xwayland
+    xwayland libXdmcp hwdata pipewire
 
-    qtdeclarative qtmultimedia qtquickcontrols2 qtscript qtsensors
+    qtdeclarative qtmultimedia qtquickcontrols qtquickcontrols2 qtscript qtsensors
     qtvirtualkeyboard qtx11extras
 
     breeze-qt5 kactivities kcmutils kcompletion kconfig kconfigwidgets
