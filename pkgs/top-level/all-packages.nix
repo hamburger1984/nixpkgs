@@ -5126,7 +5126,7 @@ in
 
   ksmoothdock = libsForQt514.callPackage ../applications/misc/ksmoothdock { };
 
-  kstars = libsForQt514.callPackage ../applications/science/astronomy/kstars { };
+  kstars = libsForQt5.callPackage ../applications/science/astronomy/kstars { };
 
   kytea = callPackage ../tools/text/kytea { };
 
@@ -6356,7 +6356,7 @@ in
 
   overmind = callPackage ../applications/misc/overmind { };
 
-  owncloud-client = libsForQt514.callPackage ../applications/networking/owncloud-client { };
+  owncloud-client = libsForQt5.callPackage ../applications/networking/owncloud-client { };
 
   oxidized = callPackage ../tools/admin/oxidized { };
 
@@ -11923,7 +11923,7 @@ in
 
   pyrseas = callPackage ../development/tools/database/pyrseas { };
 
-  qtcreator = libsForQt514.callPackage ../development/tools/qtcreator { };
+  qtcreator = libsForQt5.callPackage ../development/tools/qtcreator { };
 
   qxmledit = libsForQt5.callPackage ../applications/editors/qxmledit {} ;
 
@@ -20574,7 +20574,7 @@ in
 
   calibre = calibre-py3;
 
-  calligra = libsForQt514.callPackage ../applications/office/calligra {
+  calligra = libsForQt5.callPackage ../applications/office/calligra {
     openjpeg = openjpeg_1;
     poppler = poppler_0_61.override {
       qt5Support = true;
@@ -23033,7 +23033,7 @@ in
 
   smplayer = libsForQt5.callPackage ../applications/video/smplayer { };
 
-  smtube = libsForQt514.callPackage ../applications/video/smtube {};
+  smtube = libsForQt5.callPackage ../applications/video/smtube {};
 
   softmaker-office = callPackage ../applications/office/softmaker/softmaker_office.nix {};
 
@@ -23581,7 +23581,7 @@ in
 
   qimgv = libsForQt5.callPackage ../applications/graphics/qimgv { };
 
-  qlandkartegt = libsForQt514.callPackage ../applications/misc/qlandkartegt {};
+  qlandkartegt = libsForQt5.callPackage ../applications/misc/qlandkartegt {};
 
   garmindev = callPackage ../applications/misc/qlandkartegt/garmindev.nix {};
 
@@ -23794,7 +23794,7 @@ in
 
   rsclock = callPackage ../applications/misc/rsclock { };
 
-  rstudio = libsForQt514.callPackage ../applications/editors/rstudio {
+  rstudio = libsForQt5.callPackage ../applications/editors/rstudio {
     boost = boost166;
     llvmPackages = llvmPackages_7;
     jdk = jdk8; # TODO: remove override https://github.com/NixOS/nixpkgs/pull/89731
@@ -24402,7 +24402,7 @@ in
 
   tribler = callPackage ../applications/networking/p2p/tribler { };
 
-  trojita = libsForQt514.callPackage ../applications/networking/mailreaders/trojita { };
+  trojita = libsForQt5.callPackage ../applications/networking/mailreaders/trojita { };
 
   tudu = callPackage ../applications/office/tudu { };
 
@@ -24499,7 +24499,7 @@ in
 
   vimv = callPackage ../tools/misc/vimv/default.nix { };
 
-  qpdfview = libsForQt514.callPackage ../applications/misc/qpdfview {};
+  qpdfview = libsForQt5.callPackage ../applications/misc/qpdfview {};
 
   qtile = callPackage ../applications/window-managers/qtile {
     inherit (xorg) libxcb;
@@ -25544,7 +25544,7 @@ in
 
   dhewm3 = callPackage ../games/dhewm3 {};
 
-  digikam = libsForQt514.callPackage ../applications/graphics/digikam {};
+  digikam = libsForQt5.callPackage ../applications/graphics/digikam {};
 
   displaycal = callPackage ../applications/graphics/displaycal {};
 
