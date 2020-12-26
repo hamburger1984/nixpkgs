@@ -2,7 +2,7 @@
   mkDerivation, lib, kdepimTeam,
   extra-cmake-modules, shared-mime-info, qtbase, accounts-qt,
   boost, kaccounts-integration, kcompletion, kconfigwidgets, kcrash, kdbusaddons,
-  kdesignerplugin, ki18n, kiconthemes, kio, kitemmodels, kwindowsystem, mysql, qttools,
+  kdesignerplugin, ki18n, kiconthemes, kio, kitemmodels, kwindowsystem, lzma, mysql, qttools,
   signond,
 }:
 
@@ -21,7 +21,7 @@ mkDerivation {
   nativeBuildInputs = [ extra-cmake-modules shared-mime-info ];
   buildInputs = [
     kaccounts-integration kcompletion kconfigwidgets kcrash kdbusaddons kdesignerplugin
-    ki18n kiconthemes kio kwindowsystem accounts-qt qttools signond
+    ki18n kiconthemes kio kwindowsystem accounts-qt qttools signond lzma
   ];
   propagatedBuildInputs = [ boost kitemmodels ];
   outputs = [ "out" "dev" ];
