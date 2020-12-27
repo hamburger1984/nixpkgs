@@ -12451,7 +12451,7 @@ in
 
   pyrseas = callPackage ../development/tools/database/pyrseas { };
 
-  qtcreator = libsForQt5.callPackage ../development/tools/qtcreator { };
+  qtcreator = libsForQt514.callPackage ../development/tools/qtcreator { };
 
   qxmledit = libsForQt5.callPackage ../applications/editors/qxmledit {} ;
 
@@ -25337,7 +25337,7 @@ in
 
   vimv = callPackage ../tools/misc/vimv/default.nix { };
 
-  qpdfview = libsForQt5.callPackage ../applications/misc/qpdfview {};
+  qpdfview = libsForQt514.callPackage ../applications/misc/qpdfview {};
 
   qtile = callPackage ../applications/window-managers/qtile {
     inherit (xorg) libxcb;
