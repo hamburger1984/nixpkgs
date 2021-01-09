@@ -1,6 +1,8 @@
 { stdenv
 , fetchFromGitLab
 , pkgconfig
+, gdb
+, valgrind
 , meson
 , ninja
 , gusb
@@ -12,6 +14,7 @@
 , gtk-doc
 , docbook_xsl
 , docbook_xml_dtd_43
+, cairo
 }:
 
 stdenv.mkDerivation rec {
@@ -29,12 +32,15 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     pkgconfig
+    gdb
+    valgrind
     meson
     ninja
     gtk-doc
     docbook_xsl
     docbook_xml_dtd_43
     gobject-introspection
+    cairo
   ];
 
   buildInputs = [
