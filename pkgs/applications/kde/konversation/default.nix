@@ -17,6 +17,7 @@
 , kiconthemes
 , kidletime
 , kitemviews
+, knewstuff
 , knotifications
 , knotifyconfig
 , kwindowsystem
@@ -26,16 +27,11 @@
 , solid
 , sonnet
 , phonon
+, qca-qt5
 }:
 
 mkDerivation rec {
   pname = "konversation";
-  version = "1.7.7";
-
-  src = fetchurl {
-    url = "mirror://kde/stable/${pname}/${version}/src/${pname}-${version}.tar.xz";
-    sha256 = "R+wWHBOFmBqLmdKMQZ6Iskgj3AG2j7FiOJSBiXTCGKc=";
-  };
 
   buildInputs = [
     kbookmarks
@@ -52,6 +48,7 @@ mkDerivation rec {
     kiconthemes
     kidletime
     kitemviews
+    knewstuff
     knotifications
     knotifyconfig
     kwindowsystem
@@ -61,6 +58,7 @@ mkDerivation rec {
     solid
     sonnet
     phonon
+    qca-qt5
   ];
 
   nativeBuildInputs = [

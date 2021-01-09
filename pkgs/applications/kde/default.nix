@@ -158,6 +158,7 @@ let
       kontactinterface = callPackage ./kontactinterface.nix {};
       konquest = callPackage ./konquest.nix {};
       konqueror = callPackage ./konqueror.nix {};
+      konversation = callPackage ./konversation {};
       korganizer = callPackage ./korganizer.nix {};
       kpat = callPackage ./kpat.nix {};
       kpimtextedit = callPackage ./kpimtextedit.nix {};

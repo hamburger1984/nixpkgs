@@ -16213,7 +16213,7 @@ in
       kblackbox kblocks kbounce kcachegrind kcalc kcharselect kcolorchooser
       kdenlive kdf kdialog kdiamond keditbookmarks kfind kfloppy kget kgpg khelpcenter
       kig kigo killbots kitinerary kleopatra klettres klines kmag kmail kmines kmix kmplot
-      knavalbattle knetwalk knights kollision kolourpaint kompare konsole kontact korganizer
+      knavalbattle knetwalk knights kollision kolourpaint kompare konsole kontact konversation korganizer
       kpkpass kpmcore krdc kreversi krfb kshisen ksquares ksystemlog kteatime ktimer ktouch
       kturtle kwalletmanager kwave marble minuet okular picmi spectacle yakuake
     ;
@@ -23085,8 +23085,6 @@ in
   kodestudio = callPackage ../applications/editors/kodestudio { };
 
   kondo = callPackage ../applications/misc/kondo { };
-
-  konversation = libsForQt5.callPackage ../applications/networking/irc/konversation { };
 
   kotatogram-desktop = libsForQt514.callPackage ../applications/networking/instant-messengers/telegram/kotatogram-desktop { };
 
