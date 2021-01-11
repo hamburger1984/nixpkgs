@@ -5430,8 +5430,6 @@ in
 
   krakenx = callPackage ../tools/system/krakenx { };
 
-  partition-manager = libsForQt5.callPackage ../tools/misc/partition-manager { };
-
   kpcli = callPackage ../tools/security/kpcli { };
 
   krename = libsForQt5.callPackage ../applications/misc/krename { };
@@ -16215,7 +16213,7 @@ in
       kig kigo killbots kitinerary kleopatra klettres klines kmag kmail kmines kmix kmplot
       knavalbattle knetwalk knights kollision kolourpaint kompare konsole kontact konversation korganizer
       kpkpass kpmcore krdc kreversi krfb kshisen ksquares ksystemlog kteatime ktimer ktouch
-      kturtle kwalletmanager kwave marble minuet okular picmi spectacle yakuake
+      kturtle kwalletmanager kwave marble minuet okular partition-manager picmi spectacle yakuake
     ;
 
     ### LIBRARIES

@@ -202,6 +202,7 @@ let
       messagelib = callPackage ./messagelib.nix {};
       minuet = callPackage ./minuet.nix {};
       okular = callPackage ./okular.nix {};
+      partition-manager = callPackage ./partition-manager {};
       picmi = callPackage ./picmi.nix {};
       pimcommon = callPackage ./pimcommon.nix {};
       pim-data-exporter = callPackage ./pim-data-exporter.nix {};
