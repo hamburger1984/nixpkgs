@@ -1,0 +1,60 @@
+{ mkDerivation, lib, extra-cmake-modules
+, qtbase, kio
+, polkit-qt
+
+, btrfs-progs
+, dosfstools
+, e2fsprogs
+, eject
+, exfat-utils
+, lvm2
+, ntfs3g
+, xfsprogs
+, zfs
+
+, parted
+, libatasmart
+
+, util-linux
+}:
+
+mkDerivation {
+  pname = "kpmcore";
+  buildInputs = [
+    qtbase
+
+    kio
+    polkit-qt
+
+    btrfs-progs
+    dosfstools
+    e2fsprogs
+    eject
+    exfat-utils
+    lvm2
+    ntfs3g
+    xfsprogs
+    zfs
+
+    libatasmart
+    parted # we only need the library
+
+    util-linux # needs blkid (note that this is not provided by util-linux-compat)
+  ];
+
+  POLKITQT-1_POLICY_FILES_INSTALL_DIR = "$(out)/share/polkit-1/actions";
+
+  postPatch = ''
+    sed -i "s|\''${POLKITQT-1_POLICY_FILES_INSTALL_DIR}|''${out}/share/polkit-1/actions|" src/util/CMakeLists.txt
+  '';
+
+  dontWrapQtApps = true;
+
+  nativeBuildInputs = [ extra-cmake-modules ];
+
+  meta = {
+    maintainers = with lib.maintainers; [ peterhoeg ];
+    # The build requires at least Qt 5.14.
+    broken = lib.versionOlder qtbase.version "5.14";
+  };
+}

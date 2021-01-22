@@ -118,8 +118,6 @@ in (kdeFrameworks // plasma5 // plasma5.thirdParty // kdeGear // qt5 // {
 
   libqtav = callPackage ../development/libraries/libqtav { };
 
-  kpmcore = callPackage ../development/libraries/kpmcore { };
-
   mapbox-gl-native = libsForQt5.callPackage ../development/libraries/mapbox-gl-native { };
 
   mapbox-gl-qml = libsForQt5.callPackage ../development/libraries/mapbox-gl-qml { };
