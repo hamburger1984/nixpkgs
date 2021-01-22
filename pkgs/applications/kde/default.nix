@@ -167,6 +167,7 @@ let
       korganizer = callPackage ./korganizer.nix {};
       kpat = callPackage ./kpat.nix {};
       kpimtextedit = callPackage ./kpimtextedit.nix {};
+      kpmcore = callPackage ./kpmcore {};
       ksmtp = callPackage ./ksmtp {};
       ksquares = callPackage ./ksquares.nix {};
       kqtquickcharts = callPackage ./kqtquickcharts.nix {};
