@@ -18,10 +18,13 @@ mkDerivation {
 
     libraw1394 libGLU pciutils
   ];
-  preFixup = ''
-    # fix wrong symlink of infocenter pointing to a 'systemsettings5' binary in
-    # the same directory, while it is actually located in a completely different
-    # store path
-    ln -sf ${lib.getBin systemsettings}/bin/systemsettings5 $out/bin/kinfocenter
+  #preFixup = ''
+  #  # fix wrong symlink of infocenter pointing to a 'systemsettings5' binary in the same directory,
+  #  # while it is actually located in a completely different store path
+  #  ln -sf ${lib.getBin systemsettings}/bin/systemsettings5 $out/bin/kinfocenter
+  #'';
+
+  postPatch = ''
+    sed -i "s|create_symlink.*systemsettings5|create_symlink ${systemsettings}/bin/systemsettings5|" CMakeLists.txt
   '';
 }
