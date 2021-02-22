@@ -2,7 +2,7 @@ Index: libkscreen-5.9.4/src/backendmanager.cpp
 ===================================================================
 --- libkscreen-5.9.4.orig/src/backendmanager.cpp
 +++ libkscreen-5.9.4/src/backendmanager.cpp
-@@ -172,14 +172,11 @@ QFileInfo BackendManager::preferredBackend(const QString &backend)
+@@ -178,14 +178,11 @@ QFileInfo BackendManager::preferredBacke
  QFileInfoList BackendManager::listBackends()
  {
      // Compile a list of installed backends first

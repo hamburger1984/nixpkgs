@@ -1,8 +1,8 @@
 {
   mkDerivation, lib,
   extra-cmake-modules, kdoctools,
-  libcap, libpcap, lm_sensors,
-  kconfig, kcoreaddons, ki18n, kiconthemes, kinit, kitemviews,
+  libcap, libnl, libpcap, lm_sensors,
+  kconfig, kcoreaddons, kdelibs4support, ki18n, kiconthemes, kitemviews,
   knewstuff, libksysguard, qtbase,
   networkmanager-qt, libnl
 }:
