@@ -1,17 +1,45 @@
 { mkDerivation, fetchurl, lib, makeWrapper
-, extra-cmake-modules, kdoctools, wrapGAppsHook, wrapQtAppsHook
-, kconfig, kconfigwidgets, kcrash, kdbusaddons, kdoctools, kinit, kio, kjobwidgets, kpmcore
+, extra-cmake-modules, qtbase, kdoctools, wrapGAppsHook, wrapQtAppsHook
+, kconfig, kconfigwidgets, kcrash, kdbusaddons, kinit, kio, kjobwidgets, kpmcore
 , cryptsetup, lvm2, mdadm, smartmontools, systemdMinimal, util-linux
-, btrfs-progs, dosfstools, e2fsprogs, exfat, f2fs-tools, fatresize, hfsprogs
-, jfsutils, libatasmarts, nilfs-utils, ntfs3g, polkit-qt, reiser4progs, reiserfsprogs, udftools, xfsprogs, zfs
+, btrfs-progs, dosfstools, e2fsprogs, eject, exfat, f2fs-tools, fatresize, hfsprogs
+, jfsutils, libatasmart, nilfs-utils, ntfs3g, polkit-qt, reiser4progs, reiserfsprogs, udftools, xfsprogs, zfs
 }:
 
-mkDerivation {
+let
+  # External programs are resolved by `partition-manager` and then
+  # invoked by `kpmcore_externalcommand` from `kpmcore` as root.
+  # So these packages should be in PATH of `partition-manager`.
+  # https://github.com/KDE/kpmcore/blob/06f15334ecfbe871730a90dbe2b694ba060ee998/src/util/externalcommand_whitelist.h
+  runtimeDeps = lib.makeBinPath [
+    cryptsetup
+    lvm2
+    mdadm
+    smartmontools
+    systemdMinimal
+    util-linux
+
+    btrfs-progs
+    dosfstools
+    e2fsprogs
+    exfat
+    f2fs-tools
+    fatresize
+    hfsprogs
+    jfsutils
+    nilfs-utils
+    ntfs3g
+    reiser4progs
+    reiserfsprogs
+    udftools
+    xfsprogs
+    zfs
+
+    # FIXME: Missing command: tune.exfat hfsck hformat fsck.nilfs2 {fsck,mkfs,debugfs,tunefs}.ocfs2
+  ];
+
+in mkDerivation {
   pname = "partitionmanager";
-
-#  enableParallelBuilding = true;
-
-  nativeBuildInputs = [ extra-cmake-modules kdoctools ];
 
   cmakeFlags = [
     "-DCMAKE_VERBOSE_MAKEFILE=True"

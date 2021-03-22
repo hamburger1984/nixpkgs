@@ -4,7 +4,7 @@
   libcap, libnl, libpcap, lm_sensors,
   kconfig, kcoreaddons, kdelibs4support, ki18n, kiconthemes, kitemviews,
   knewstuff, libksysguard, qtbase,
-  networkmanager-qt, libnl
+  networkmanager-qt,
 }:
 
 mkDerivation {
