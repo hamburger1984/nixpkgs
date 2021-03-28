@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 { mkDerivation
 , lib
 , extra-cmake-modules
