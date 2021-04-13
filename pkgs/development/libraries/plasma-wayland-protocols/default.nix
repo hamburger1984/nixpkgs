@@ -9,7 +9,7 @@ mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://kde/stable/${pname}/${pname}-v${version}.tar.xz";
-    sha256 = "sha256-KHuQkD+afzlMdedcsYdCaGLq9kqS8b5+LvaOmf2Muqo=";
+    sha256 = "287b90903f9a7f394c75e75cb187426862eaf64a92f1be7e2ef68e99fd8cbaaa";
   };
 
   nativeBuildInputs = [ extra-cmake-modules ];
