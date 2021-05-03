@@ -1,5 +1,6 @@
 { mkDerivation, lib, extra-cmake-modules
 , qtbase, kio
+, qca-qt5, kauth
 , polkit-qt
 
 , btrfs-progs
@@ -22,7 +23,9 @@ mkDerivation {
   pname = "kpmcore";
   buildInputs = [
     qtbase
+    qca-qt5
 
+    kauth
     kio
     polkit-qt
 
