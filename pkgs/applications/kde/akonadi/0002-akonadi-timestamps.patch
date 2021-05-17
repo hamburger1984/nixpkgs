@@ -8,10 +8,10 @@ Subject: [PATCH 2/3] akonadi timestamps
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/src/server/storage/dbconfigmysql.cpp b/src/server/storage/dbconfigmysql.cpp
-index 3550f9d..e9e8887 100644
+index 1a437ac..3cc5f1f 100644
 --- a/src/server/storage/dbconfigmysql.cpp
 +++ b/src/server/storage/dbconfigmysql.cpp
-@@ -241,8 +241,7 @@ bool DbConfigMysql::startInternalServer()
+@@ -257,8 +257,7 @@ bool DbConfigMysql::startInternalServer()
      bool confUpdate = false;
      QFile actualFile(actualConfig);
      // update conf only if either global (or local) is newer than actual
