@@ -13,4 +13,6 @@ mkDerivation {
     solid
   ];
   propagatedBuildInputs = [ kcoreaddons kfilemetadata qtbase ];
+
+  outputs = [ "out" ];
 }
