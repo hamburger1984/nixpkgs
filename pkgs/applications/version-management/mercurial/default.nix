@@ -17,18 +17,18 @@ in python3Packages.buildPythonApplication rec {
     sha256 = "17rhlmmkqz5ll3k68jfzpcifg3nndbcbc2nx7kw8xn3qcj7nlpgw";
   };
 
-  patches = [
-    # https://phab.mercurial-scm.org/D10638, needed for below patch to apply
-    (fetchpatch {
-      url = "https://phab.mercurial-scm.org/file/data/oymk4awh2dd7q6cwjbzu/PHID-FILE-bfcr7qrp5spg42wspxpd/D10638.diff";
-      sha256 = "0mfi324is02l7cnd3j0gbmg5rpyyqn3afg3f73flnfwmz5njqa5f";
-    })
-    # https://phab.mercurial-scm.org/D10639, fixes https://bz.mercurial-scm.org/show_bug.cgi?id=6514
-    (fetchpatch {
-      url = "https://phab.mercurial-scm.org/file/data/re4uqdhtknjiacx2ogwu/PHID-FILE-4m26id65dno5gzix2ngh/D10639.diff";
-      sha256 = "0h5ilrd2x1789fr6sf4k1mcvxdh0xdyr94yawdacw87v3x12c8cb";
-    })
-  ];
+  #patches = [
+  #  # https://phab.mercurial-scm.org/D10638, needed for below patch to apply
+  #  (fetchpatch {
+  #    url = "https://phab.mercurial-scm.org/file/data/oymk4awh2dd7q6cwjbzu/PHID-FILE-bfcr7qrp5spg42wspxpd/D10638.diff";
+  #    sha256 = "0mfi324is02l7cnd3j0gbmg5rpyyqn3afg3f73flnfwmz5njqa5f";
+  #  })
+  #  # https://phab.mercurial-scm.org/D10639, fixes https://bz.mercurial-scm.org/show_bug.cgi?id=6514
+  #  (fetchpatch {
+  #    url = "https://phab.mercurial-scm.org/file/data/re4uqdhtknjiacx2ogwu/PHID-FILE-4m26id65dno5gzix2ngh/D10639.diff";
+  #    sha256 = "0h5ilrd2x1789fr6sf4k1mcvxdh0xdyr94yawdacw87v3x12c8cb";
+  #  })
+  #];
 
   format = "other";
 
