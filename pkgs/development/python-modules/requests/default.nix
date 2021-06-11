@@ -49,6 +49,13 @@ buildPythonPackage rec {
     "requests.models.PreparedRequest"
     "requests.sessions.Session"
     "requests"
+    "test_chunked_upload"
+    "test_digestauth_401_count_reset_on_redirect"
+    "test_digestauth_401_only_sent_once"
+    "test_digestauth_only_on_4xx"
+    "test_redirect_rfc1808_to_non_ascii_location"
+    "test_fragment_not_sent_with_request"
+    "test_fragment_update_on_redirect"
     "test_redirecting_to_bad_url"
     "test_requests_are_updated_each_time"
     "test_should_bypass_proxies_pass_only_hostname"
@@ -56,6 +63,7 @@ buildPythonPackage rec {
     "test_urllib3_retries"
     "test_use_proxy_from_environment"
     "TestRequests"
+    "TestTestServer"
     "TestTimeout"
   ];
 
