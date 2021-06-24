@@ -123,7 +123,7 @@ let
       kscreen = callPackage ./kscreen.nix {};
       kscreenlocker = callPackage ./kscreenlocker.nix {};
       ksshaskpass = callPackage ./ksshaskpass.nix {};
-      ksysguard = callPackage ./ksysguard.nix {};
+      #ksysguard = callPackage ./ksysguard.nix {};
       kwallet-pam = callPackage ./kwallet-pam.nix {};
       kwayland-integration = callPackage ./kwayland-integration.nix {};
       kwayland-server = callPackage ./kwayland-server {};

@@ -271,7 +271,7 @@ in
           kmenuedit
           kscreen
           kscreenlocker
-          ksysguard
+          #ksysguard
           kwayland
           kwin
           kwrited
