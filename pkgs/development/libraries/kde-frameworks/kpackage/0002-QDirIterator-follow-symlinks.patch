@@ -11,10 +11,9 @@ diff --git a/src/kpackage/packageloader.cpp b/src/kpackage/packageloader.cpp
 index 3c8ceb7..03532ca 100644
 --- a/src/kpackage/packageloader.cpp
 +++ b/src/kpackage/packageloader.cpp
-@@ -214,7 +214,7 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
+@@ -214,6 +214,6 @@ QList<KPluginMetaData> PackageLoader::listPackages(const QString &packageFormat,
  
      for (auto const &plugindir : qAsConst(paths)) {
-         // If there's no cache file, fall back to listing the directory
 -        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories;
 +        const QDirIterator::IteratorFlags flags = QDirIterator::Subdirectories | QDirIterator::FollowSymlinks;
          const QStringList nameFilters = {QStringLiteral("metadata.json"), QStringLiteral("metadata.desktop")};
