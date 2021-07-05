@@ -3,8 +3,8 @@
   extra-cmake-modules, kdoctools,
 
   boost, fontconfig, ibus, libXcursor, libXft, libcanberra_kde, libpulseaudio,
-  libxkbfile, xf86inputevdev, xf86inputsynaptics, xinput, xkeyboard_config,
-  xorgserver, util-linux,
+  libxkbfile, libXdmcp, xf86inputevdev, xf86inputsynaptics, xinput,
+  xkeyboard_config, xorgserver, util-linux, mesa, pcre, libinput, intltool,
 
   accounts-qt, qtdeclarative, qtquickcontrols, qtquickcontrols2, qtsvg,
   qtx11extras,
@@ -13,7 +13,8 @@
   kcmutils, kdbusaddons, kdeclarative, kded, kdelibs4support, kemoticons,
   kglobalaccel, ki18n, kitemmodels, knewstuff, knotifications, knotifyconfig,
   kpeople, krunner, kscreenlocker, kwallet, kwin, phonon, #ksysguard,
-  plasma-framework, plasma-workspace, qqc2-desktop-style, xf86inputlibinput
+  plasma-framework, plasma-workspace, qqc2-desktop-style, xf86inputlibinput,
+  signond
 }:
 
 mkDerivation {
@@ -21,9 +22,11 @@ mkDerivation {
   nativeBuildInputs = [ extra-cmake-modules kdoctools ];
   buildInputs = [
     boost fontconfig ibus libcanberra_kde libpulseaudio libXcursor libXft xorgserver
-    libxkbfile phonon xf86inputevdev xf86inputsynaptics xinput xkeyboard_config
+    libxkbfile libXdmcp phonon xf86inputevdev xf86inputsynaptics xinput
+    xkeyboard_config mesa pcre libinput intltool
 
     accounts-qt qtdeclarative qtquickcontrols qtquickcontrols2 qtsvg qtx11extras
+    signond
 
     attica baloo kaccounts-integration kactivities kactivities-stats kauth
     kcmutils kdbusaddons kdeclarative kded kdelibs4support kemoticons
@@ -41,6 +44,7 @@ mkDerivation {
   '';
   CXXFLAGS = [
     "-I${lib.getDev xorgserver}/include/xorg"
+    "-I${lib.getDev xf86inputsynaptics}/include/xorg"
     ''-DNIXPKGS_HWCLOCK=\"${lib.getBin util-linux}/sbin/hwclock\"''
   ];
   cmakeFlags = [

@@ -129,6 +129,7 @@ let
       kwayland-server = callPackage ./kwayland-server {};
       kwin = callPackage ./kwin {};
       kwrited = callPackage ./kwrited.nix {};
+      layer-shell-qt = callPackage ./layer-shell-qt.nix {};
       libkscreen = callPackage ./libkscreen {};
       libksysguard = callPackage ./libksysguard {};
       milou = callPackage ./milou.nix {};
