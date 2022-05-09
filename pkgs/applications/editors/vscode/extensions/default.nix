@@ -4952,6 +4952,18 @@ let
         };
       };
 
+      uctakeoff.vscode-counter = buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "vscode-counter";
+          publisher = "uctakeoff";
+          version = "3.0.4";
+          sha256 = "0v3fld43sy8xx8kn0bwy5rbgy566ddbj8awr8zmv47gbp18z9fhh";
+        };
+        meta = {
+          license = lib.licenses.mit;
+        };
+      };
+
       usernamehw.errorlens = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "errorlens";
