@@ -3160,6 +3160,19 @@ let
         };
       };
 
+      monokai.theme-monokai-pro-vscode = buildVscodeMarketplaceExtension {
+        mktplcRef =
+          {
+            name = "theme-monokai-pro-vscode";
+            publisher = "monokai";
+            version = "1.2.2";
+            sha256 = "07ndy2fc249z087p6fw7xzgvva2vr4kw3ar9kn6nkz13v36g7qn5";
+        };
+        meta = {
+          license = lib.licenses.mit;
+        };
+      };
+
       ms-azuretools.vscode-docker = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "vscode-docker";
