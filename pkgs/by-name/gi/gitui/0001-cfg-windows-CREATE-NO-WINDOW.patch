@@ -1,0 +1,12 @@
+diff --git a/git2-hooks/src/hookspath.rs b/git2-hooks/src/hookspath.rs
+index 3648676e..05d99e75 100644
+--- a/git2-hooks/src/hookspath.rs
++++ b/git2-hooks/src/hookspath.rs
+@@ -211,6 +211,7 @@ trait CommandExt {
+ 	/// or if it used with either `CREATE_NEW_CONSOLE` or `DETACHED_PROCESS`.
+ 	///
+ 	/// See: <https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags>
++	#[cfg(windows)]
+ 	const CREATE_NO_WINDOW: u32 = 0x0800_0000;
+ 
+ 	fn with_no_window(&mut self) -> &mut Self;
