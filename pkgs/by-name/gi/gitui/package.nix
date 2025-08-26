@@ -25,6 +25,9 @@ rustPlatform.buildRustPackage {
   };
 
   cargoHash = "sha256-Le/dD8bTd5boz1IeEq4ItJZYC3MRW8uiT/3Zy1yv5L0=";
+  cargoPatches = [
+    (lib.optional (lib.versionAtLeast version "0.27.0") (./0001-cfg-windows-CREATE-NO-WINDOW.patch))
+  ];
 
   nativeBuildInputs = [
     pkg-config
