@@ -20,10 +20,15 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.12";
 
   src = fetchFromGitHub {
-    owner = "zigpy";
+    #owner = "zigpy";
+    #repo = "zha-device-handlers";
+    #tag = version;
+    #hash = "sha256-3EcRB412I+0yazAXX2qtqhrSzR8D/52b4HZkuAmQaoM=";
+
+    owner = "hamburger1984";
     repo = "zha-device-handlers";
-    tag = version;
-    hash = "sha256-3EcRB412I+0yazAXX2qtqhrSzR8D/52b4HZkuAmQaoM=";
+    rev = "f9489860d69478b2133fb5eadf24b1f5cd5f8755";
+    hash = "sha256-evBWKMl087FsD51kXwlsNsTAAtJSCeKWhsSKAeTZmmY=";
   };
 
   postPatch = ''
