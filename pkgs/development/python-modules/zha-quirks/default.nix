@@ -13,7 +13,7 @@
 
 buildPythonPackage rec {
   pname = "zha-quirks";
-  version = "0.0.150-dev";
+  version = "0.0.150";
   pyproject = true;
 
   disabled = pythonOlder "3.12";
