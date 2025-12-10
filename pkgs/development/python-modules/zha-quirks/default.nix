@@ -19,10 +19,13 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.12";
 
   src = fetchFromGitHub {
-    owner = "zigpy";
+    #owner = "zigpy";
+    owner = "hamburger1984";
     repo = "zha-device-handlers";
-    tag = version;
-    hash = "sha256-GxNxc+cu3wBjz/1VF2+0DJ/PBTLlJKm0ncgzeaw5Fxw=";
+    #tag = version;
+    #hash = "sha256-GxNxc+cu3wBjz/1VF2+0DJ/PBTLlJKm0ncgzeaw5Fxw=";
+    hash = "sha256-lCcJCQ+/X3GpZPG3Li9f+sspFG+f2Ju3R6523jR1U2w=";
+    rev = "196b569507a18e7d3fdc2e65cc26734cfae91ffc";
   };
 
   postPatch = ''
