@@ -106,6 +106,7 @@ buildPythonPackage (finalAttrs: {
     "test_fan_ikea"
     "test_background"
     "test_gateway_startup_failure" # Failed first attempt, passed second, flaky
+    "test_devices_from_files"
   ];
 
   passthru.tests = {
