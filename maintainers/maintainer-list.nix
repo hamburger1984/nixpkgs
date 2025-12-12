@@ -13417,6 +13417,11 @@
     github = "katrinafyi";
     githubId = 39479354;
   };
+  kaweees = {
+    github = "kaweees";
+    githubId = 49963287;
+    name = "Miguel Villa Floran";
+  };
   kayhide = {
     email = "kayhide@gmail.com";
     github = "kayhide";
@@ -16769,12 +16774,6 @@
     github = "Melkor333";
     githubId = 6412377;
     name = "Samuel Ruprecht";
-  };
-  melling = {
-    email = "mattmelling@fastmail.com";
-    github = "mattmelling";
-    githubId = 1215331;
-    name = "Matt Melling";
   };
   melon = {
     email = "melontime05@gmail.com";
