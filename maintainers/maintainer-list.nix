@@ -15189,6 +15189,12 @@
     githubId = 1422781;
     name = "Will Young";
   };
+  loucass003 = {
+    name = "Lucas Lelievre";
+    email = "loucass003@gmail.com";
+    github = "loucass003";
+    githubId = 3948904;
+  };
   louis-thevenet = {
     name = "Louis Thevenet";
     github = "louis-thevenet";
@@ -22682,6 +22688,12 @@
     keys = [ { fingerprint = "7DCA 5615 8AB2 621F 2F32  9FF4 1C7C E491 479F A273"; } ];
     name = "Rahul Butani";
   };
+  rrvsh = {
+    email = "rafiq@rrv.sh";
+    github = "rrvsh";
+    githubId = 20300874;
+    name = "Mohammad Rafiq";
+  };
   rseichter = {
     email = "nixos.org@seichter.de";
     github = "rseichter";
@@ -23969,7 +23981,7 @@
   };
   shikanime = {
     name = "William Phetsinorath";
-    email = "deva.shikanime@protonmail.com";
+    email = "william.phetsinorath@shikanime.studio";
     github = "shikanime";
     githubId = 22115108;
   };
