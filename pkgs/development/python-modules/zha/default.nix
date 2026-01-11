@@ -93,6 +93,7 @@ buildPythonPackage rec {
     "test_startup_concurrency_limit"
     "test_fan_ikea"
     "test_background"
+    "test_devices_from_files"
   ];
 
   disabledTestPaths = [ "tests/test_cluster_handlers.py" ];
