@@ -24,7 +24,7 @@ buildPythonPackage rec {
     repo = "zha-device-handlers";
     #tag = version;
     #hash = "sha256-lCcJCQ+/X3GpZPG3Li9f+sspFG+f2Ju3R6523jR1U2w=";
-    #rev = "196b569507a18e7d3fdc2e65cc26734cfae91ffc";
+    hash = "sha256-m+cNwXbA9MsJGXCEyYCpzCgffNfpiA5ngInC2su3Qk0=";
     rev = "483d775191a93778d7257f045b6fcdfbcd8976b5";
   };
 
