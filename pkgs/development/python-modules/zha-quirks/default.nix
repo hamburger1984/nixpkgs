@@ -20,12 +20,14 @@ buildPythonPackage rec {
 
   src = fetchFromGitHub {
     #owner = "zigpy";
-    owner = "hamburger1984";
-    repo = "zha-device-handlers";
+    #repo = "zha-device-handlers";
     #tag = version;
     #hash = "sha256-lCcJCQ+/X3GpZPG3Li9f+sspFG+f2Ju3R6523jR1U2w=";
-    hash = "sha256-m+cNwXbA9MsJGXCEyYCpzCgffNfpiA5ngInC2su3Qk0=";
-    rev = "483d775191a93778d7257f045b6fcdfbcd8976b5";
+
+    owner = "hamburger1984";
+    repo = "zha-device-handlers";
+    rev = "7f3b2a3e523e04519e45250cd465eec90b426da0";
+    hash = "";
   };
 
   postPatch = ''
