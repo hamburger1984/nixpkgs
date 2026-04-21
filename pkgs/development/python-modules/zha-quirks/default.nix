@@ -13,7 +13,7 @@
 
 buildPythonPackage rec {
   pname = "zha-quirks";
-  version = "1.1.1";
+  version = "1.1.1-mod";
   pyproject = true;
 
   disabled = pythonOlder "3.12";
@@ -26,7 +26,7 @@ buildPythonPackage rec {
 
     owner = "hamburger1984";
     repo = "zha-device-handlers";
-    rev = "7f3b2a3e523e04519e45250cd465eec90b426da0";
+    rev = "ed31cc51604757bdf8a8992a6771affb8a0e20b1";
     hash = "";
   };
 
