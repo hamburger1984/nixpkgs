@@ -27,8 +27,8 @@ buildPythonPackage rec {
 
     owner = "hamburger1984";
     repo = "zha-device-handlers";
-    rev = "53de3f420372ba3f5cfe2e98c0b363fbd2305b68";
-    hash = "";
+    rev = "8b3c7d38954d43b2cb99c89f2cd412d17bd4b8ea";
+    hash = "sha256-NdXM4j5sdHR+BZ7XRmyE30Oz3M6FUuHEsOL40HZvkGI=";
   };
 
   postPatch = ''
