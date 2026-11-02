@@ -14,7 +14,7 @@
 
 buildPythonPackage rec {
   pname = "zha-quirks";
-  version = "2.4.0";
+  version = "2.3.0";
   pyproject = true;
 
   disabled = pythonOlder "3.12";
@@ -27,8 +27,8 @@ buildPythonPackage rec {
 
     owner = "hamburger1984";
     repo = "zha-device-handlers";
-    rev = "8b3c7d38954d43b2cb99c89f2cd412d17bd4b8ea";
-    hash = "sha256-NdXM4j5sdHR+BZ7XRmyE30Oz3M6FUuHEsOL40HZvkGI=";
+    rev = "5a73c6c94c0c31e252e7f5ac7bad33e0e73c5b7a";
+    hash = "sha256-5A6rNhEnEt9xTUCHoY2wn1Lzj9TrftXK94cfwhdR0S0=";
   };
 
   postPatch = ''
